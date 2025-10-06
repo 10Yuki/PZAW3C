@@ -11,14 +11,6 @@ const pathConfigs = [
       res.end(index_html);
     },
   },
-  {
-    path: "/hello",
-    allowed_methods: ["GET"],
-    handler: (req, res) => {
-      res.writeHead(200, { "Content-Type": "text/plain" });
-      res.end("hello world!\n");
-    },
-  },
 ];
 
 export function handlePath(path, req, res) {
