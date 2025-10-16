@@ -16,7 +16,7 @@ const server = createServer((req, res) => {
 
   if (path === "/favicon.ico") {
     if (req.method !== "GET") {
-      res.writeHead(405, { "Content-Type": "text/plain; charset=utf-8" });
+      res.writeHead(405, { "Content-Type": "image/vnd.microsoft.ico" });
       res.end("Method not allowed\n");
       return;
     }
