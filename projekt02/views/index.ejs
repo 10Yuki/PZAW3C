@@ -1,0 +1,13 @@
+<%- include("head.partial.ejs") %>
+
+<h2>Platformy</h2>
+
+<ul>
+  <% platforms.forEach(function(p){ %>
+    <li><a href="/platforms/<%= p.id %>"><%= p.name %></a></li>
+  <% }) %>
+</ul>
+
+<p><a href="/platforms/new">Dodaj nową platformę</a></p>
+
+<%- include("foot.partial.ejs") %>
