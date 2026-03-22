@@ -1,0 +1,22 @@
+<%- include("head.partial.ejs") %>
+
+<h2>Platformy</h2>
+
+<ul>
+  <% platforms.forEach(function(p){ %>
+    <li>
+      <a href="/platforms/<%= p.id %>"><%= p.name %></a>
+      <% if (isAdmin) { %>
+      <form method="POST" action="/platforms/<%= p.id %>/delete-platform" style="display:inline;">
+        <button type="submit">Usuń</button>
+      </form>
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
+
+<% if (isAdmin) { %>
+<p><a href="/platforms/new">Dodaj nową platformę</a></p>
+<% } %>
+<%- include("logout.ejs") %>
+<%- include("foot.partial.ejs") %>
