@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2em;
+  background: #f4f4f4;
+}
+
+h1 {
+  margin-bottom: 1em;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+button {
+  margin-left: 10px;
+  padding: 3px 7px;
+  background: #d9534f;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#errors {
+  background: #ffe0e0;
+  padding: 10px;
+  border-radius: 6px;
+  color: #a00;
+}
