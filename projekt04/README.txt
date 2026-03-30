@@ -20,7 +20,7 @@ Struktura   ||     projektu
             ||
             \/
             
-        projekt03/
+        projekt04/
         ├── index.js
         ├── db.sqlite
         ├── package.json
