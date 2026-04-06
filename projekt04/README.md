@@ -1,21 +1,20 @@
-Instalujemy potrzebne zależności
+# Zależności
 
-> npm install
+`npm install`
 
-Startujemy stronę komendą 
-> node index.js
-Ewentualnie jeśli chcemy dane testowe od razu na stronie to można wystartować serwer w taki sposób:
-> POPULATE_DB=1 node index.js
-I strona jest gotowa do użytku!
+# Użycie
+Startujemy stronę komendą:<br>
+`node index.js`
 
-default admin login = 
-admin
-admin123
+Ewentualnie jeśli chcemy dane testowe od razu na stronie to można wystartować serwer w taki sposób:<br>
+`POPULATE_DB=1 node index.js`
 
-Struktura   ||     projektu
-            ||
-            \/
-            
+**I strona jest gotowa do użytku!**
+
+
+# Struktura projektu
+
+
         projekt04/
         ├── index.js
         ├── db.sqlite
@@ -32,3 +31,10 @@ Struktura   ||     projektu
             ├── register.ejs
             ├── new_platform.ejs
             └── platform.ejs
+
+
+**Default admin login**
+* admin
+* admin123
+
+
