@@ -36,5 +36,3 @@ Ewentualnie jeśli chcemy dane testowe od razu na stronie to można wystartować
 **Default admin login**
 * admin
 * admin123
-
-
