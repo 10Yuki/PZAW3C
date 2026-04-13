@@ -16,7 +16,6 @@ db.exec(`
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL
   ) STRICT;
-
   CREATE TABLE IF NOT EXISTS games (
     id INTEGER PRIMARY KEY,
     title TEXT NOT NULL,
@@ -37,19 +36,12 @@ db.exec(`
   ) STRICT;
 `);
 
-
-
 const db_ops = {
   get_platforms: db.prepare(`SELECT * FROM platforms`),
   get_platform_by_id: db.prepare(`SELECT * FROM platforms WHERE id = ?`),
-  insert_platform: db.prepare(
-    `INSERT INTO platforms (name) VALUES (?) RETURNING id, name;`
-  ),
+  insert_platform: db.prepare(`INSERT INTO platforms (name) VALUES (?) RETURNING id, name;`),
   get_games_by_platform: db.prepare(`SELECT * FROM games WHERE platform_id = ?`),
-  insert_game: db.prepare(
-    `INSERT INTO games (title, genre, platform_id, user_id) 
-     VALUES (?, ?, ?, ?) RETURNING id, title, genre, platform_id, user_id;`
-  ),
+  insert_game: db.prepare(`INSERT INTO games (title, genre, platform_id, user_id) VALUES (?, ?, ?, ?) RETURNING id, title, genre, platform_id, user_id;`),
   delete_game: db.prepare(`DELETE FROM games WHERE id = ?`),
   delete_platform: db.prepare(`DELETE FROM platforms WHERE id = ?`),
   check_game_exists: db.prepare(`SELECT 1 FROM games WHERE title = ? AND platform_id = ?`),
@@ -57,21 +49,11 @@ const db_ops = {
   check_login_exist: db.prepare(`SELECT username FROM users WHERE username = ?`),
   check_user_exist: db.prepare(`SELECT id FROM users WHERE username = ?`),
   insert_user: db.prepare(`INSERT INTO users (username,password,is_admin) VALUES(?,?,? ) RETURNING id,username,password,is_admin `),
-  create_session: db.prepare(
-    `INSERT INTO session (id, user_id, created_at)
-            VALUES (?, ?, ?) RETURNING id, user_id, created_at;`
-  ),
-  get_session: db.prepare(
-    "SELECT id, user_id, created_at from session WHERE id = ?;"
-  ),
-  get_auth_data: db.prepare(
-    "SELECT password FROM users WHERE username = ?;",
-  ),
-  check_if_admin: db.prepare(
-    "SELECT is_admin from users WHERE id = ?;"
-  ),
+  create_session: db.prepare(`INSERT INTO session (id, user_id, created_at) VALUES (?, ?, ?) RETURNING id, user_id, created_at;`),
+  get_session: db.prepare("SELECT id, user_id, created_at from session WHERE id = ?;"),
+  get_auth_data: db.prepare("SELECT password FROM users WHERE username = ?;",),
+  check_if_admin: db.prepare("SELECT is_admin from users WHERE id = ?;"),
   delete_session: db.prepare("DELETE FROM session WHERE id = ?"),
-
 };
 function createSession(user, res) {
   let sessionId = randomBytes(32).toString("hex");
@@ -86,6 +68,7 @@ function createSession(user, res) {
   });
   return session;
 }
+
 function getSession(req, res, next) {
   const sessionId = req.cookies?.[SESSION_COOKIE];
   console.log("getsession",sessionId)
@@ -105,6 +88,7 @@ function getSession(req, res, next) {
   res.locals.session = session;
   next();
 }
+
 function logout(req, res) {
   const sessionId = req.cookies?.[SESSION_COOKIE];
 
@@ -132,7 +116,7 @@ if (process.env.POPULATE_DB) {
   if (!adminExists) {
     const adminHash = await argon2.hash("admin123");
     db_ops.insert_user.run("admin", adminHash, 1);
-    console.log("Created admin account: admin / admin123");
+    console.log("Utworzono konto administratora: admin / admin123");
   }
 
   const platforms_data = [
@@ -165,6 +149,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev")); 
 app.use(express.json());
 app.use(cookieParser());
+
 app.get("/", (req, res) => {
   res.redirect("/login")
 });
@@ -189,9 +174,11 @@ const { Username, Password } = req.body;
       return res.status(400).json({ error: "no user available" });
     }
 });
+
 app.get("/register", (req, res) => {
   res.render("register");
 });
+
 app.post("/register", async (req, res) => {
   const { Username, Password } = req.body;
 
@@ -214,6 +201,7 @@ app.post("/register", async (req, res) => {
 
   res.redirect("/platforms");
 });
+
 app.get("/platforms", getSession, (req, res) => {
   console.log(res.locals.session)
    if (!res.locals.session) {
