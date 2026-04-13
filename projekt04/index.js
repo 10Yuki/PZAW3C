@@ -55,6 +55,7 @@ const db_ops = {
   check_if_admin: db.prepare("SELECT is_admin from users WHERE id = ?;"),
   delete_session: db.prepare("DELETE FROM session WHERE id = ?"),
 };
+
 function createSession(user, res) {
   let sessionId = randomBytes(32).toString("hex");
   let createdAt = Date.now();
@@ -294,6 +295,7 @@ app.post("/platforms/:platform_id/new",getSession, (req, res) => {
   db_ops.insert_game.get(title, genre, pid, res.locals.session.user_id);
   res.redirect(`/platforms/${pid}`);
 });
+
 app.post("/logout", (req,res)=>{
   const sessionId = req.cookies?.[SESSION_COOKIE];
   if (sessionId) {
@@ -303,6 +305,7 @@ app.post("/logout", (req,res)=>{
   res.locals.session = null;
   res.redirect("/login")
 })
+
 app.post("/platforms/:platform_id/delete-platform", getSession, (req, res) => {
   if (!res.locals.session) {
     return res.status(401).json({ error: "Not logged in" });
