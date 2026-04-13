@@ -1,3 +1,8 @@
+# Działanie aplikacji
+
+`Aplikacja umożliwia użytkownikom dodawanie i usuwanie platform oraz gier w celu pokazania ich innym użytkownikom`
+
+
 # Zależności
 
 `npm install`
