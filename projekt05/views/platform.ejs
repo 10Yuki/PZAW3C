@@ -1,0 +1,35 @@
+<%- include("head.partial.ejs") %>
+
+<h2><%= platform.name %></h2>
+
+<ul>
+  <% games.forEach(function(g){ %>
+    <li>
+      <b><%= g.title %></b> — <%= g.genre %>
+      <% if (isAdmin || g.user_id === currentUserId) { %>
+      <form method="POST" action="/platforms/<%= platform.id %>/delete" style="display:inline;">
+        <input type="hidden" name="game_id" value="<%= g.id %>">
+        <button type="submit" class="btn btn-danger">Usuń</button>
+      </form>
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
+
+<h3 style="margin-top:20px; margin-bottom:10px;">Dodaj grę</h3>
+
+<% if (errors.length > 0) { %>
+  <ul id="errors">
+    <% errors.forEach(function(e){ %><li><%= e %></li><% }) %>
+  </ul>
+<% } %>
+
+<form method="POST" action="/platforms/<%= platform.id %>/new" style="display:flex; gap:8px; align-items:center;">
+  <input name="title" placeholder="Tytuł gry" style="flex:1;">
+  <input name="genre" placeholder="Gatunek" style="flex:1;">
+  <button type="submit" class="btn btn-primary">Dodaj</button>
+</form>
+
+<p style="margin-top:16px;"><a href="/">Wróć</a></p>
+<div style="margin-top:8px;"><%- include("logout.ejs") %></div>
+<%- include("foot.partial.ejs") %>

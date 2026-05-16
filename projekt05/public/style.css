@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #e8f0fe;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+nav {
+  background: #1a56db;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 460px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(26, 86, 219, 0.1);
+}
+
+h1, h2 {
+  color: #1a56db;
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #b0c4f0;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-bottom: 16px;
+  background: #f5f8ff;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #1a56db;
+  background: #fff;
+}
+
+.form-link {
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.form-link a, a {
+  color: #1a56db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button[type="submit"],
+button[type="reset"] {
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  border: none;
+}
+
+button[type="submit"] {
+  background: #1a56db;
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background: #1447b5;
+}
+
+button[type="reset"] {
+  background: #e8f0fe;
+  color: #1a56db;
+  border: 1px solid #b0c4f0;
+}
+
+button[type="reset"]:hover {
+  background: #d0e0fc;
+}
+
+.btn {
+  display: inline-block;
+  width: auto;
+  padding: 5px 14px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  margin-bottom: 0;
+}
+
+.btn-primary {
+  background: #1a56db;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #1447b5;
+  color: #fff;
+}
+
+.btn-danger {
+  background: #d9534f;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #b52b27;
+}
+
+.btn-secondary {
+  background: #e8f0fe;
+  color: #1a56db;
+  border: 1px solid #b0c4f0;
+}
+
+.btn-secondary:hover {
+  background: #d0e0fc;
+}
+
+#errors,
+.error-box {
+  background: #ffe0e0;
+  border: 1px solid #f5b0b0;
+  color: #a00;
+  padding: 10px 16px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 8px;
+}

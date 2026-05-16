@@ -1,0 +1,22 @@
+<%- include("head.partial.ejs") %>
+<div class="container">
+  <p class="form-link">Masz już konto? <a href="/login">Zaloguj się</a></p>
+  <h2>Zarejestruj się</h2>
+  <% if (typeof error !== 'undefined' && error) { %>
+    <div class="error-box"><%= error %></div>
+  <% } %>
+  <form method="POST">
+    <label for="Username">Nazwa użytkownika</label>
+    <input type="text" name="Username" id="Username" autocomplete="username">
+
+    <label for="Password">Hasło</label>
+    <input type="password" name="Password" id="Password" autocomplete="new-password">
+
+    <label for="PasswordConfirm">Potwierdź hasło</label>
+    <input type="password" name="PasswordConfirm" id="PasswordConfirm" autocomplete="new-password">
+
+    <button type="submit">Zarejestruj</button>
+    <button type="reset">Zresetuj</button>
+  </form>
+</div>
+<%- include("foot.partial.ejs") %>

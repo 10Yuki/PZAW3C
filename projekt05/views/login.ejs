@@ -1,0 +1,16 @@
+<%- include("head.partial.ejs") %>
+<div class="container">
+  <p class="form-link">Nie masz konta? <a href="/register">Zarejestruj się!</a></p>
+  <h2>Zaloguj się</h2>
+  <form method="POST">
+    <label for="Username">Nazwa użytkownika</label>
+    <input type="text" name="Username" id="Username" autocomplete="username">
+
+    <label for="Password">Hasło</label>
+    <input type="password" name="Password" id="Password" autocomplete="current-password">
+
+    <button type="submit">Zaloguj</button>
+    <button type="reset">Zresetuj</button>
+  </form>
+</div>
+<%- include("foot.partial.ejs") %>

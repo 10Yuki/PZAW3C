@@ -1,0 +1,18 @@
+<%- include("head.partial.ejs") %>
+
+<h2>Dodaj platformę</h2>
+
+<% if (errors.length > 0) { %>
+  <ul id="errors">
+    <% errors.forEach(function(e){ %><li><%= e %></li><% }) %>
+  </ul>
+<% } %>
+
+<form method="POST" style="display:flex; gap:8px; align-items:center;">
+  <input name="name" placeholder="Nazwa platformy" style="flex:1;">
+  <button type="submit" class="btn btn-primary">Dodaj</button>
+</form>
+
+<p style="margin-top:16px;"><a href="/">Wróć</a></p>
+
+<%- include("foot.partial.ejs") %>
