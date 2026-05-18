@@ -1,0 +1,5 @@
+Tomek:
+-Możesz dodać wygasanie sesji bo teraz ciasteczko się kończy po tygodniu ale w bazie masz na zawsze chyba
+-I jeszcze nie wiem czy to masz ale mógłbyś dodać faktyczne strony błędów a nie zwracać json po prostu
+Michał:
+...
